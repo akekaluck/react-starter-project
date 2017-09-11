@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "build"),
     publicPath: '/build',
-    filename: '/js/bundle.js'
+    filename: 'bundle.js'
   },
   devtool: 'source-map',
   module: {
@@ -21,12 +21,21 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          //resolve-url-loader may be chained before sass-loader if necessary
-          use: ['css-loader', 'less-loader']
-        })
-      }
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'less-loader'
+        ]
+      },
+      // For production extract to seperate file
+      // {
+      //   test: /\.less$/,
+      //   use: ExtractTextPlugin.extract({
+      //     fallback: 'style-loader',
+      //     //resolve-url-loader may be chained before sass-loader if necessary
+      //     use: ['css-loader', 'less-loader']
+      //   })
+      // }
     ]
   },
   plugins: [

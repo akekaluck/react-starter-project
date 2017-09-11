@@ -1,8 +1,60 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
 .transform-a {
   transform: all 0.5s ease-in-out;
 }
 
 body {
-  background-color: red;
+  background-color: white;
   .transform-a();
+}
+
+.room-card {
+  height: 150px;
+  width: 400px;
+  margin: 10px;
+  textAlign: 'center';
+  display: inline-block;
+  background-color: #80D8FF !important;
+  .header {
+    // background-color: green;
+    height: 50px;
+    width: 100%;
+    div {
+      display: inline-block;
+      // height: 100%
+    }
+    .room-name {
+      font-weight: bold;
+      font-size: 20px;
+      padding: 10px;
+    }
+    .header-button {
+      right: 0px;
+      float: right;
+      .card-button {
+        min-width: 50px !important;
+        height: 100% !important;
+        width: 80px !important;
+      }
+    }
+  }
+  .content {
+    padding-left: 10px;
+    padding-right: 10px;
+    // background-color: green;
+    height: 50px;
+    width: 100%;
+  }
+  .footer {
+    background-color: rgba(255,255,255,0.2);
+    height: 50px;
+    width: 100%;
+    buttom: 0px;
+    .card-button {
+      height: 100% !important;
+      width: 50% !important;
+      // opacity: 0.8 !important;
+    }
+  }
 }
