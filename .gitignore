@@ -13,8 +13,8 @@ logs
 results
 tmp
 coverage
-build
-public
+public/build
+# public
 
 # API keys
 .env
@@ -37,3 +37,6 @@ sequelize
 server/userupload/*
 server/database/*
 server/models/*
+
+
+package-lock.json

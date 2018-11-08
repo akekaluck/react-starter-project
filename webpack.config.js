@@ -2,9 +2,9 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require("path");
 
 module.exports = {
-  entry: './app/js/app.js',
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, "build"),
+    path: path.resolve(__dirname, "./public/build"),
     publicPath: '/build',
     filename: 'bundle.js'
   },
@@ -37,6 +37,11 @@ module.exports = {
       //   })
       // }
     ]
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    compress: true,
+    port: 9000
   },
   plugins: [
     // extract inline css into separate 'styles.css'

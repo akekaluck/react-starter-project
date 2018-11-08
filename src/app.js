@@ -6,7 +6,7 @@ import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
 import {cyan500} from 'material-ui/styles/colors';
 
-require('../less/main.less')
+require('./less/main.less')
 
 injectTapEventPlugin();
 
@@ -43,7 +43,4 @@ const App = () => (
   </MuiThemeProvider>
 )
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('app')
-);
+export default App;
