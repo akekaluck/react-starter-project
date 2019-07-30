@@ -1,15 +1,17 @@
-var path = require('path');
+const path = require('path');
 
 module.exports = {
-  entry: './app/js/index.js',
+  mode: 'development',
+  entry: './src/index.js',
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    // publicPath: './dist/'
+    path: path.resolve(__dirname, "./public/build"),
+    publicPath: '/build',
+    filename: 'bundle.js'
   },
   devServer: {
-    inline: true,
-    contentBase: "app",
-    // hot: true
-  }
+    contentBase: path.join(__dirname, 'public'),
+    compress: true,
+    port: 8080,
+    historyApiFallback: true
+  },
 };

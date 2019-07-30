@@ -37,3 +37,6 @@ sequelize
 server/userupload/*
 server/database/*
 server/models/*
+
+dist/*
+package-lock.json
