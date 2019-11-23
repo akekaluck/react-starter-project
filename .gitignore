@@ -14,7 +14,6 @@ results
 tmp
 coverage
 build
-public
 
 # API keys
 .env
