@@ -1,13 +1,17 @@
 import React, { Component} from "react";
-import { Menu, Icon, Button } from 'antd';
+import { Menu, Icon, Button, Row, Col  } from 'antd';
 const { SubMenu } = Menu;
 // import 'antd/dist/antd.less';
 import "./App.less";
 
 class App extends Component{
-    state = {
-        current: 'mail',
-    };
+    constructor(){
+        super();
+        this.state = {
+            current: 'mail',
+            message: undefined
+        };
+    }
 
     handleClick = e => {
         console.log('click ', e);
@@ -51,10 +55,23 @@ class App extends Component{
                 </a>
                 </Menu.Item>
             </Menu>
-            <div>
-                <Button type="primary">Primary</Button>
+                <div id="container">
+                    <Row>
+                        <Col span={12}>
+                            <iframe className="appframe" src="http://localhost:8080/"></iframe>
+                        </Col>
+                        <Col span={12}>
+                            <iframe className="appframe" src=""></iframe>
+                        </Col>
+                    </Row>
+                </div>
+                <div>
+                    <Button onClick={this.handleClick.bind(this)}>test</Button>
+                </div>
+                <div>
+                    { this.state.message }
+                </div>
             </div>
-        </div>
         );
     }
 }
