@@ -1,7 +1,10 @@
 import React, { Component} from "react";
+import { connect } from 'react-redux'
+import { app_init } from './actions';
+
 import { Menu, Icon, Button, Row, Col  } from 'antd';
 const { SubMenu } = Menu;
-// import 'antd/dist/antd.less';
+
 import "./App.less";
 
 class App extends Component{
@@ -13,32 +16,25 @@ class App extends Component{
         };
     }
 
-    handleClick = e => {
-        console.log('click ', e);
-        this.setState({
-            current: e.key,
-        });
-    };
-    
     render(){
         return(
             <div>
                 <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
-                <Menu.Item key="mail">
-                <Icon type="mail" />
-                Navigation One
-                </Menu.Item>
-                <Menu.Item key="app" disabled>
-                <Icon type="appstore" />
-                Navigation Two
-                </Menu.Item>
+                    <Menu.Item key="mail">
+                        <Icon type="mail" />
+                        Navigation One
+                    </Menu.Item>
+                    <Menu.Item key="app" disabled>
+                        <Icon type="appstore" />
+                        Navigation Two
+                    </Menu.Item>
                 <SubMenu
-                title={
-                    <span className="submenu-title-wrapper">
-                    <Icon type="setting" />
-                    Navigation Three - Submenu
-                    </span>
-                }
+                    title={
+                        <span className="submenu-title-wrapper">
+                        <Icon type="setting" />
+                        Navigation Three - Submenu
+                        </span>
+                    }
                 >
                 <Menu.ItemGroup title="Item 1">
                     <Menu.Item key="setting:1">Option 1</Menu.Item>
@@ -50,9 +46,9 @@ class App extends Component{
                 </Menu.ItemGroup>
                 </SubMenu>
                 <Menu.Item key="alipay">
-                <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-                    Navigation Four - Link
-                </a>
+                    <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+                        Navigation Four - Link
+                    </a>
                 </Menu.Item>
             </Menu>
                 <div id="container">
@@ -66,14 +62,20 @@ class App extends Component{
                     </Row>
                 </div>
                 <div>
-                    <Button onClick={this.handleClick.bind(this)}>test</Button>
+                    <Button onClick={this.props.app_init}>test</Button>
                 </div>
                 <div>
-                    { this.state.message }
+                    { this.props.name }
                 </div>
             </div>
         );
     }
 }
 
-export default App;
+const mapStateToProps = (state /*, ownProps*/) => {
+    return { ...state }
+}
+  
+const mapDispatchToProps = { app_init }
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
